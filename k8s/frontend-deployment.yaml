@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jawsome-frontend-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: jawsome-frontend
+  template:
+    metadata:
+      labels:
+        app: jawsome-frontend
+    spec:
+      containers:
+      - name: jawsome-frontend
+        image: public.ecr.aws/s2y3v5z4/jawsome:frontend-v1.0.8
+        ports:
+        - containerPort: 3000
+        imagePullPolicy: Always
+        env:
+        - name: NODE_ENV
+          value: "production"  # Set NODE_ENV to production
+        - name: VITE_EXPRESS_BACKEND_URL
+          # value: "http://backend:3030" 
+          value: "http://a12f5b931ed614cfd9c569b5c71fbbff-1547954327.us-west-2.elb.amazonaws.com:3030"
+
+        

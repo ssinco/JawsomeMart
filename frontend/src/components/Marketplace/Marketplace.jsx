@@ -27,7 +27,7 @@ const Marketplace = () => {
     const getComponents = () => {
 
         // Sends a "GET" request for products stored in db
-        axios.get('/api/products')
+        axios.get('http://a12f5b931ed614cfd9c569b5c71fbbff-1547954327.us-west-2.elb.amazonaws.com:3030/api/products')
             .then(res => {
 
                 // Function that changes the state of products array

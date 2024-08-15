@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jawsome-backend-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: jawsome-backend
+  template:
+    metadata:
+      labels:
+        app: jawsome-backend
+    spec:
+      containers:
+      - name: jawsome-backend
+        image: public.ecr.aws/s2y3v5z4/jawsome:backend-v1.0.6
+        ports:
+        - containerPort: 3030
+        env:
+        - name: NODE_ENV
+          value: "production"

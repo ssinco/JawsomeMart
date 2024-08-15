@@ -33,6 +33,7 @@ const userController = {
   },
 
   async userLogin(req, res, next) {
+    console.log('login hit, controller')
     try {
       const { username, password } = req.body;
       const user = await User.findOne({ username });

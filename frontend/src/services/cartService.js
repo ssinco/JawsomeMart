@@ -1,4 +1,10 @@
-const BACKEND_URL = '/api'
+// const BACKEND_URL = import.meta.env.VITE_EXPRESS_BACKEND_URL || '/api';
+const BACKEND_URL = import.meta.env.PROD
+  ? `${import.meta.env.VITE_EXPRESS_BACKEND_URL}/api`  // This will be true in production
+  : '/api';  // This will be false in development
+
+console.log('Running in production:', import.meta.env.PROD);
+console.log('Backend URL prod', import.meta.env.VITE_EXPRESS_BACKEND_URL);
 
 // view my cart
 const index = async () => {

@@ -7,7 +7,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import * as authService from '../../services/authService'
 import * as cartService from '../../services/cartService'
 import styles from './Cart.module.css'
-import data from '../../../../testdb.json'
+import data from '../../../testdb.json'
 
 /* =======================================================
 Helper Functions

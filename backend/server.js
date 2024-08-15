@@ -1,14 +1,21 @@
 const express = require('express');
 const app = express();
-const port = 5000;
+const port = 3030;
 require('dotenv').config();
 const path = require('path');
 const db = require('./config/db.js');
+const cors = require('cors'); // Import CORS
+
 const productsRoutes = require('./routes/productRoutes.js');
 const userRoutes = require('./routes/userRoutes.js');
 const cartRoutes = require('./routes/cartRoutes.js');
 
 db();
+
+console.log('NODE_ENV:', process.env.NODE_ENV);
+console.log('NODE_ENV:', process.env.MONGO_URI);
+
+app.use(cors()); // Enable CORS
 app.use(express.json());
 app.use('/api/cart', cartRoutes);
 app.use('/api/auth', userRoutes);

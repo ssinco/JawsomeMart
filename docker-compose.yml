@@ -1,0 +1,21 @@
+version: '3.9'
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "3030:3030" # Expose backend on port 3030
+    networks:
+      - app-network
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000" # Expose frontend on port 3000
+    env_file:
+      - docker.env
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
